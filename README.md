@@ -3,22 +3,19 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+First time to run:
 
-* Ruby version
+docker-compose build
+docker-compose run --rm web bundle exec rails g spree:install --user_class=Spree::User
+docker-compose run --rm web bundle exec rails g spree:auth:install
+docker-compose run --rm web bundle exec rails g spree_gateway:install
+docker-compose up
 
-* System dependencies
+Later on:
 
-* Configuration
+docker-compose build
+docker-compose up
 
-* Database creation
+Clean all docker file:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+docker system prune -a --volumes
